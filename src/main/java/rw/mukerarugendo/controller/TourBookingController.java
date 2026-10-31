@@ -5,8 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rw.mukerarugendo.domain.TourBooking;
+import rw.mukerarugendo.domain.TourStatus;
 import rw.mukerarugendo.service.TourBookingService;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -57,5 +59,17 @@ public class TourBookingController {
             return new ResponseEntity<>(returnedMessage, HttpStatus.OK);
         else
             return new ResponseEntity<>(returnedMessage, HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping(value = "/by-status")
+    public ResponseEntity<List<TourBooking>> getTourBookingsByStatus(@RequestParam TourStatus status) {
+        return ResponseEntity.ok(tourBookingServe.getTourBookingsByStatus(status));
+    }
+
+    @GetMapping(value = "/between")
+    public ResponseEntity<List<TourBooking>> getTourBookingsBetween(@RequestParam String start, @RequestParam String end) {
+        LocalDate startDate = LocalDate.parse(start);
+        LocalDate endDate = LocalDate.parse(end);
+        return ResponseEntity.ok(tourBookingServe.getTourBookingsBetween(startDate, endDate));
     }
 }

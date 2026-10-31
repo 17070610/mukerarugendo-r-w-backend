@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rw.mukerarugendo.domain.TourBooking;
 import rw.mukerarugendo.domain.TourGuide;
+import rw.mukerarugendo.domain.TourStatus;
 import rw.mukerarugendo.domain.Traveller;
 import rw.mukerarugendo.repository.TourBookingRepository;
 import rw.mukerarugendo.repository.TourGuideRepository;
 import rw.mukerarugendo.repository.TravellerRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -62,5 +64,13 @@ public class TourBookingService {
             return "The tour booking with that id does not exist";
         tourBookingRepo.deleteById(id);
         return "Tour booking deleted successfully";
+    }
+
+    public List<TourBooking> getTourBookingsByStatus(TourStatus status) {
+        return tourBookingRepo.findByStatusOrderByTourDateAsc(status);
+    }
+
+    public List<TourBooking> getTourBookingsBetween(LocalDate start, LocalDate end) {
+        return tourBookingRepo.findByTourDateBetweenOrderByTourDateAsc(start, end);
     }
 }

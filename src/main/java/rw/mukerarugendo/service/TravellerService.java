@@ -56,4 +56,8 @@ public class TravellerService {
         travellerRepo.deleteById(id);
         return "Traveller deleted successfully";
     }
+
+    public List<Traveller> getTravellersByNationality(String nationality) {
+        return travellerRepo.findByNationalityIgnoreCaseOrderByLastNameAsc(nationality);
+    }
 }

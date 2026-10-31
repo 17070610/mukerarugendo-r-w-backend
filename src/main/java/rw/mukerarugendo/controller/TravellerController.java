@@ -58,4 +58,9 @@ public class TravellerController {
         else
             return new ResponseEntity<>(returnedMessage, HttpStatus.CONFLICT);
     }
+
+    @GetMapping(value = "/by-nationality")
+    public ResponseEntity<List<Traveller>> getTravellersByNationality(@RequestParam String nationality) {
+        return ResponseEntity.ok(travellerServe.getTravellersByNationality(nationality));
+    }
 }
