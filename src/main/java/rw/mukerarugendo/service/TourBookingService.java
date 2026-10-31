@@ -32,6 +32,16 @@ public class TourBookingService {
         Optional<TourGuide> foundTourGuide = tourGuideRepo.findById(tourGuideId);
         if (foundTourGuide.isEmpty())
             return "The tour guide with that id does not exist";
+        if (tourBooking.getTourDate().isBefore(LocalDate.now()))
+            return "Tour booking date cannot be in the past";
+        boolean tourGuideBooked = tourBookingRepo.existsByTourGuideIdAndTourDateAndStatusNot(
+                tourGuideId,
+                tourBooking.getTourDate(),
+                TourStatus.CANCELLED
+        );
+        if (tourGuideBooked)
+            return "Tour guide is already booked on that date";
+        tourBooking.setStatus(TourStatus.RESERVED);
         tourBooking.setTraveller(foundTraveller.get());
         tourBooking.setTourGuide(foundTourGuide.get());
         tourBookingRepo.save(tourBooking);
@@ -53,7 +63,6 @@ public class TourBookingService {
         TourBooking existingTourBooking = foundTourBooking.get();
         existingTourBooking.setTourDate(newTourBooking.getTourDate());
         existingTourBooking.setGroupSize(newTourBooking.getGroupSize());
-        existingTourBooking.setStatus(newTourBooking.getStatus());
         TourBooking savedTourBooking = tourBookingRepo.save(existingTourBooking);
         return Optional.of(savedTourBooking);
     }
@@ -64,6 +73,26 @@ public class TourBookingService {
             return "The tour booking with that id does not exist";
         tourBookingRepo.deleteById(id);
         return "Tour booking deleted successfully";
+    }
+
+    public String updateStatus(UUID id, TourStatus newStatus) {
+        Optional<TourBooking> foundTourBooking = tourBookingRepo.findById(id);
+        if (foundTourBooking.isEmpty())
+            return "The tour booking with that id does not exist";
+        TourBooking tourBooking = foundTourBooking.get();
+        TourStatus currentStatus = tourBooking.getStatus();
+        boolean allowed = false;
+        if (currentStatus == TourStatus.RESERVED
+                && (newStatus == TourStatus.PAID || newStatus == TourStatus.CANCELLED))
+            allowed = true;
+        if (currentStatus == TourStatus.PAID
+                && (newStatus == TourStatus.VISITED || newStatus == TourStatus.CANCELLED))
+            allowed = true;
+        if (!allowed)
+            return "Cannot change status from " + currentStatus + " to " + newStatus;
+        tourBooking.setStatus(newStatus);
+        tourBookingRepo.save(tourBooking);
+        return "Tour booking status updated successfully";
     }
 
     public List<TourBooking> getTourBookingsByStatus(TourStatus status) {

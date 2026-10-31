@@ -78,4 +78,15 @@ public class TourGuideController {
     public ResponseEntity<List<TourGuide>> getTourGuidesByTourType(@RequestParam String name) {
         return ResponseEntity.ok(tourGuideServe.getTourGuidesByTourType(name));
     }
+
+    @PatchMapping(value = "/{tourGuideId}/destination")
+    public ResponseEntity<?> changeDestination(@PathVariable UUID tourGuideId, @RequestParam int siteNumber) {
+        String returnedMessage = tourGuideServe.changeDestination(tourGuideId, siteNumber);
+        if (returnedMessage.equals("Destination changed successfully"))
+            return new ResponseEntity<>(returnedMessage, HttpStatus.OK);
+        else if (returnedMessage.equals("That destination is taken by another tour guide"))
+            return new ResponseEntity<>(returnedMessage, HttpStatus.CONFLICT);
+        else
+            return new ResponseEntity<>(returnedMessage, HttpStatus.NOT_FOUND);
+    }
 }

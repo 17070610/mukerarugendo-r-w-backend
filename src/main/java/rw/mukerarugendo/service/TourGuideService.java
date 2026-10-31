@@ -91,4 +91,19 @@ public class TourGuideService {
     public List<TourGuide> getTourGuidesByTourType(String name) {
         return tourGuideRepo.findGuidesByTourTypeName(name);
     }
+
+    public String changeDestination(UUID tourGuideId, int siteNumber) {
+        Optional<TourGuide> foundTourGuide = tourGuideRepo.findById(tourGuideId);
+        if (foundTourGuide.isEmpty())
+            return "The tour guide with that id does not exist";
+        Optional<Destination> foundDestination = destinationRepo.findBySiteNumber(siteNumber);
+        if (foundDestination.isEmpty())
+            return "The destination with that siteNumber does not exist";
+        if (tourGuideRepo.existsByDestination(foundDestination.get()))
+            return "That destination is taken by another tour guide";
+        TourGuide tourGuide = foundTourGuide.get();
+        tourGuide.setDestination(foundDestination.get());
+        tourGuideRepo.save(tourGuide);
+        return "Destination changed successfully";
+    }
 }

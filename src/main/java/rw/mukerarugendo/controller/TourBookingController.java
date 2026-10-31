@@ -27,6 +27,10 @@ public class TourBookingController {
         String returnedMessage = tourBookingServe.saveTourBooking(tourBooking, travellerId, tourGuideId);
         if (returnedMessage.equals("Tour booking saved successfully"))
             return new ResponseEntity<>(returnedMessage, HttpStatus.CREATED);
+        else if (returnedMessage.equals("Tour booking date cannot be in the past"))
+            return new ResponseEntity<>(returnedMessage, HttpStatus.BAD_REQUEST);
+        else if (returnedMessage.equals("Tour guide is already booked on that date"))
+            return new ResponseEntity<>(returnedMessage, HttpStatus.CONFLICT);
         else
             return new ResponseEntity<>(returnedMessage, HttpStatus.NOT_FOUND);
     }
@@ -71,5 +75,16 @@ public class TourBookingController {
         LocalDate startDate = LocalDate.parse(start);
         LocalDate endDate = LocalDate.parse(end);
         return ResponseEntity.ok(tourBookingServe.getTourBookingsBetween(startDate, endDate));
+    }
+
+    @PatchMapping(value = "/{id}/status")
+    public ResponseEntity<?> updateStatus(@PathVariable UUID id, @RequestParam TourStatus status) {
+        String returnedMessage = tourBookingServe.updateStatus(id, status);
+        if (returnedMessage.equals("Tour booking status updated successfully"))
+            return new ResponseEntity<>(returnedMessage, HttpStatus.OK);
+        else if (returnedMessage.equals("The tour booking with that id does not exist"))
+            return new ResponseEntity<>(returnedMessage, HttpStatus.NOT_FOUND);
+        else
+            return new ResponseEntity<>(returnedMessage, HttpStatus.BAD_REQUEST);
     }
 }

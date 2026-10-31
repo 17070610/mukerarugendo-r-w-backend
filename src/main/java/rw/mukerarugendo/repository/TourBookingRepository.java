@@ -15,4 +15,6 @@ public interface TourBookingRepository extends JpaRepository<TourBooking, UUID> 
     boolean existsByTraveller(Traveller traveller);
     List<TourBooking> findByStatusOrderByTourDateAsc(TourStatus status);
     List<TourBooking> findByTourDateBetweenOrderByTourDateAsc(LocalDate start, LocalDate end);
+
+    boolean existsByTourGuideIdAndTourDateAndStatusNot(UUID tourGuideId, LocalDate tourDate, TourStatus status);
 }
