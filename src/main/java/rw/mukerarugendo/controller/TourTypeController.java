@@ -56,4 +56,9 @@ public class TourTypeController {
         else
             return new ResponseEntity<>(returnedMessage, HttpStatus.NOT_FOUND);
     }
+
+    @GetMapping(value = "/unused")
+    public ResponseEntity<List<TourType>> getUnusedTourTypes() {
+        return ResponseEntity.ok(tourTypeServe.getUnusedTourTypes());
+    }
 }

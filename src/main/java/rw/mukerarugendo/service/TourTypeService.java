@@ -55,4 +55,8 @@ public class TourTypeService {
         tourTypeRepo.delete(tourType);
         return "Tour type deleted successfully";
     }
+
+    public List<TourType> getUnusedTourTypes() {
+        return tourTypeRepo.findUnusedTourTypes();
+    }
 }

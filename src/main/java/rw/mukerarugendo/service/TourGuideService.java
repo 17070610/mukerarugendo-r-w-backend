@@ -87,4 +87,8 @@ public class TourGuideService {
         tourGuideRepo.save(tourGuide);
         return "Tour type added to the tour guide";
     }
+
+    public List<TourGuide> getTourGuidesByTourType(String name) {
+        return tourGuideRepo.findGuidesByTourTypeName(name);
+    }
 }

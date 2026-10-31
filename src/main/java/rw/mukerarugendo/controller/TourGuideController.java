@@ -73,4 +73,9 @@ public class TourGuideController {
         else
             return new ResponseEntity<>(returnedMessage, HttpStatus.CONFLICT);
     }
+
+    @GetMapping(value = "/by-tour-type")
+    public ResponseEntity<List<TourGuide>> getTourGuidesByTourType(@RequestParam String name) {
+        return ResponseEntity.ok(tourGuideServe.getTourGuidesByTourType(name));
+    }
 }

@@ -58,4 +58,9 @@ public class DestinationController {
         else
             return new ResponseEntity<>(returnedMessage, HttpStatus.CONFLICT);
     }
+
+    @GetMapping(value = "/free")
+    public ResponseEntity<List<Destination>> getFreeDestinations() {
+        return ResponseEntity.ok(destinationServe.getFreeDestinations());
+    }
 }

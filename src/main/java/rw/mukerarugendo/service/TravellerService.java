@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rw.mukerarugendo.domain.Traveller;
 import rw.mukerarugendo.repository.TourBookingRepository;
+import rw.mukerarugendo.repository.TourGuideRepository;
 import rw.mukerarugendo.repository.TravellerRepository;
 
 import java.util.List;
@@ -17,6 +18,8 @@ public class TravellerService {
     private TravellerRepository travellerRepo;
     @Autowired
     private TourBookingRepository tourBookingRepo;
+    @Autowired
+    private TourGuideRepository tourGuideRepo;
 
     public String saveTraveller(Traveller traveller) {
         if (travellerRepo.existsByPassportNumber(traveller.getPassportNumber()))
@@ -59,5 +62,11 @@ public class TravellerService {
 
     public List<Traveller> getTravellersByNationality(String nationality) {
         return travellerRepo.findByNationalityIgnoreCaseOrderByLastNameAsc(nationality);
+    }
+
+    public Optional<List<Traveller>> getTravellersOfTourGuide(UUID tourGuideId) {
+        if (!tourGuideRepo.existsById(tourGuideId))
+            return Optional.empty();
+        return Optional.of(travellerRepo.findTravellersOfTourGuide(tourGuideId));
     }
 }

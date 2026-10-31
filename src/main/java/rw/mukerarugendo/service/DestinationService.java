@@ -53,4 +53,8 @@ public class DestinationService {
         destinationRepo.deleteById(id);
         return "Destination deleted successfully";
     }
+
+    public List<Destination> getFreeDestinations() {
+        return destinationRepo.findFreeDestinations();
+    }
 }

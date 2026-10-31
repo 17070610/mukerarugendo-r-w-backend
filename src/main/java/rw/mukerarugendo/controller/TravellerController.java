@@ -63,4 +63,12 @@ public class TravellerController {
     public ResponseEntity<List<Traveller>> getTravellersByNationality(@RequestParam String nationality) {
         return ResponseEntity.ok(travellerServe.getTravellersByNationality(nationality));
     }
+
+    @GetMapping(value = "/of-tour-guide/{tourGuideId}")
+    public ResponseEntity<?> getTravellersOfTourGuide(@PathVariable UUID tourGuideId) {
+        Optional<List<Traveller>> travellers = travellerServe.getTravellersOfTourGuide(tourGuideId);
+        if (travellers.isPresent())
+            return ResponseEntity.ok(travellers.get());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("The tour guide with that id does not exist");
+    }
 }
