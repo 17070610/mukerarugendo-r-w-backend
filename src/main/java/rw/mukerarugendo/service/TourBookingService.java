@@ -7,6 +7,7 @@ import rw.mukerarugendo.domain.TourGuide;
 import rw.mukerarugendo.domain.TourStatus;
 import rw.mukerarugendo.domain.Traveller;
 import rw.mukerarugendo.repository.TourBookingRepository;
+import rw.mukerarugendo.repository.TourFeedbackRepository;
 import rw.mukerarugendo.repository.TourGuideRepository;
 import rw.mukerarugendo.repository.TravellerRepository;
 
@@ -24,6 +25,8 @@ public class TourBookingService {
     private TravellerRepository travellerRepo;
     @Autowired
     private TourGuideRepository tourGuideRepo;
+    @Autowired
+    private TourFeedbackRepository tourFeedbackRepo;
 
     public String saveTourBooking(TourBooking tourBooking, UUID travellerId, UUID tourGuideId) {
         Optional<Traveller> foundTraveller = travellerRepo.findById(travellerId);
@@ -71,6 +74,8 @@ public class TourBookingService {
         Optional<TourBooking> foundTourBooking = tourBookingRepo.findById(id);
         if (foundTourBooking.isEmpty())
             return "The tour booking with that id does not exist";
+        if (tourFeedbackRepo.existsByTourBooking(foundTourBooking.get()))
+            return "That tour booking has tour feedbacks, delete them first";
         tourBookingRepo.deleteById(id);
         return "Tour booking deleted successfully";
     }

@@ -61,8 +61,10 @@ public class TourBookingController {
         String returnedMessage = tourBookingServe.deleteTourBooking(id);
         if (returnedMessage.equals("Tour booking deleted successfully"))
             return new ResponseEntity<>(returnedMessage, HttpStatus.OK);
-        else
+        else if (returnedMessage.equals("The tour booking with that id does not exist"))
             return new ResponseEntity<>(returnedMessage, HttpStatus.NOT_FOUND);
+        else
+            return new ResponseEntity<>(returnedMessage, HttpStatus.CONFLICT);
     }
 
     @GetMapping(value = "/by-status")
