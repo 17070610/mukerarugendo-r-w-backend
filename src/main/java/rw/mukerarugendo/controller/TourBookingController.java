@@ -89,4 +89,15 @@ public class TourBookingController {
         else
             return new ResponseEntity<>(returnedMessage, HttpStatus.BAD_REQUEST);
     }
+
+    @GetMapping(value = "/stats/by-status")
+    public ResponseEntity<List<Object[]>> getTourBookingStatsByStatus() {
+        return ResponseEntity.ok(tourBookingServe.getTourBookingStatsByStatus());
+    }
+
+    @PatchMapping(value = "/cancel-day")
+    public ResponseEntity<String> cancelDay(@RequestParam UUID tourGuideId, @RequestParam String date) {
+        LocalDate cancelDate = LocalDate.parse(date);
+        return ResponseEntity.ok(tourBookingServe.cancelDay(tourGuideId, cancelDate));
+    }
 }

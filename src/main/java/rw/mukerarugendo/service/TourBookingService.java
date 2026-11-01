@@ -2,6 +2,7 @@ package rw.mukerarugendo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import rw.mukerarugendo.domain.TourBooking;
 import rw.mukerarugendo.domain.TourGuide;
 import rw.mukerarugendo.domain.TourStatus;
@@ -106,5 +107,15 @@ public class TourBookingService {
 
     public List<TourBooking> getTourBookingsBetween(LocalDate start, LocalDate end) {
         return tourBookingRepo.findByTourDateBetweenOrderByTourDateAsc(start, end);
+    }
+
+    public List<Object[]> getTourBookingStatsByStatus() {
+        return tourBookingRepo.countTourBookingsByStatus();
+    }
+
+    @Transactional
+    public String cancelDay(UUID tourGuideId, LocalDate date) {
+        int cancelled = tourBookingRepo.cancelDay(tourGuideId, date);
+        return cancelled + " tour bookings cancelled";
     }
 }
