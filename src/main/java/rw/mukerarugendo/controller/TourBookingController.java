@@ -1,6 +1,10 @@
 package rw.mukerarugendo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -99,5 +103,15 @@ public class TourBookingController {
     public ResponseEntity<String> cancelDay(@RequestParam UUID tourGuideId, @RequestParam String date) {
         LocalDate cancelDate = LocalDate.parse(date);
         return ResponseEntity.ok(tourBookingServe.cancelDay(tourGuideId, cancelDate));
+    }
+
+    @GetMapping(value = "/page")
+    public ResponseEntity<Page<TourBooking>> getTourBookingsPage(@RequestParam int page,
+                                                                 @RequestParam int size,
+                                                                 @RequestParam String sort) {
+        String[] sortParts = sort.split(",");
+        Sort.Direction direction = Sort.Direction.fromString(sortParts[1]);
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction, sortParts[0]));
+        return ResponseEntity.ok(tourBookingServe.getTourBookingsPage(pageable));
     }
 }

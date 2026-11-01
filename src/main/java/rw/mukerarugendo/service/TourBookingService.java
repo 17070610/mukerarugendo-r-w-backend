@@ -1,6 +1,8 @@
 package rw.mukerarugendo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import rw.mukerarugendo.domain.TourBooking;
@@ -117,5 +119,9 @@ public class TourBookingService {
     public String cancelDay(UUID tourGuideId, LocalDate date) {
         int cancelled = tourBookingRepo.cancelDay(tourGuideId, date);
         return cancelled + " tour bookings cancelled";
+    }
+
+    public Page<TourBooking> getTourBookingsPage(Pageable pageable) {
+        return tourBookingRepo.findAll(pageable);
     }
 }

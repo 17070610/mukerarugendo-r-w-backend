@@ -29,4 +29,8 @@ public interface TourBookingRepository extends JpaRepository<TourBooking, UUID> 
             "WHERE b.tourGuide.id = :tourGuideId AND b.tourDate = :date " +
             "AND b.status <> rw.mukerarugendo.domain.TourStatus.VISITED")
     int cancelDay(@Param("tourGuideId") UUID tourGuideId, @Param("date") LocalDate date);
+
+    long countByTourDate(LocalDate tourDate);
+
+    long countByStatus(TourStatus status);
 }
