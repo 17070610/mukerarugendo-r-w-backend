@@ -37,7 +37,7 @@ public class TourTypeController {
         Optional<TourType> foundTourType = tourTypeServe.getTourTypeById(id);
         if (foundTourType.isPresent())
             return ResponseEntity.ok(foundTourType.get());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("The tour type with the given id does not exist");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("The tour type with that id does not exist");
     }
 
     @PutMapping(value = "/update/{id}")

@@ -1,0 +1,1392 @@
+{
+	"info": {
+		"_postman_id": "6c6490bb-4fab-451b-baa1-488889bc73c0",
+		"name": "mukerarugendo-dev Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46643769",
+		"_collection_link": "https://schimea.postman.co/workspace/Schimea's-Workspace~d6dbc2b0-e9a0-48eb-8c5d-318259768f72/collection/46643769-6c6490bb-4fab-451b-baa1-488889bc73c0?action=share&source=collection_link&creator=46643769"
+	},
+	"item": [
+		{
+			"name": "A",
+			"item": [
+				{
+					"name": "A2 - Save tour type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test Type\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-types/save",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-types",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A2 - Get all tour types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-types/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-types",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A2 - Update tour type",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Gorilla Trekking\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-types/update/403caa3c-dc5c-4131-bd7c-a1063f16ab06",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-types",
+								"update",
+								"403caa3c-dc5c-4131-bd7c-a1063f16ab06"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A2 - Delete tour type",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-types/delete/b8d0af2e-2785-4b65-a6b9-6f525633b2c3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-types",
+								"delete",
+								"b8d0af2e-2785-4b65-a6b9-6f525633b2c3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A2 - Save destination",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"siteNumber\": 4, \"name\": \"Nyungwe Forest\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/destinations/save",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"destinations",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A2 - Save traveller",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"firstName\": \"Kenji\", \"lastName\": \"Tanaka\",  \"passportNumber\": \"JP3332221\", \"email\": \"kenji.tanaka@mail.jp\", \"nationality\": \"Japanese\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/travellers/save",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"travellers",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A2 - Save tour booking",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"tourDate\": \"2026-11-21\", \"status\": \"RESERVED\", \"groupSize\": 5}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/save?travellerId=83a382b7-6371-4078-8b27-a27288613514&tourGuideId=b2cb37e4-45a9-4a88-9ab8-1cf502c93d63",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"save"
+							],
+							"query": [
+								{
+									"key": "travellerId",
+									"value": "83a382b7-6371-4078-8b27-a27288613514"
+								},
+								{
+									"key": "tourGuideId",
+									"value": "b2cb37e4-45a9-4a88-9ab8-1cf502c93d63"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D3 - Add tour type to tour guide (seed: Eric + Lake Kivu Cruise)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-guides/9e6ac1f2-cd2b-4407-a8f0-62267eae0784/tour-types/b1278092-ff17-44c4-b88c-ace7c7938b42",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-guides",
+								"9e6ac1f2-cd2b-4407-a8f0-62267eae0784",
+								"tour-types",
+								"b1278092-ff17-44c4-b88c-ace7c7938b42"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A2 - Get tour booking, unknown id (404)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/{{zeroId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"{{zeroId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "B",
+			"item": [
+				{
+					"name": "B1 - Travellers by nationality, no match (empty list)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/travellers/by-nationality?nationality=French",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"travellers",
+								"by-nationality"
+							],
+							"query": [
+								{
+									"key": "nationality",
+									"value": "French"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "B2 - Tour bookings by status, invalid status (400)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/by-status?status=FINISHED",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"by-status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "FINISHED"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "B3 - Tour bookings in date range, no match (empty list)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/between?start=2026-12-01&end=2026-12-31",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"between"
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "2026-12-01"
+								},
+								{
+									"key": "end",
+									"value": "2026-12-31"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "C",
+			"item": [
+				{
+					"name": "C1 - Tour guides by tour type, nobody holds it (empty list)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-guides/by-tour-type?name=cultural",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-guides",
+								"by-tour-type"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "cultural"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "C2 - Free destinations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/destinations/free",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"destinations",
+								"free"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "C3 - Tour types nobody holds",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-types/unused",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-types",
+								"unused"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "C4 - Travellers of a tour guide",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/travellers/of-tour-guide/b2cb37e4-45a9-4a88-9ab8-1cf502c93d63",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"travellers",
+								"of-tour-guide",
+								"b2cb37e4-45a9-4a88-9ab8-1cf502c93d63"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "C4 - Travellers of a tour guide, unknown guide (404)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/travellers/of-tour-guide/{{zeroId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"travellers",
+								"of-tour-guide",
+								"{{zeroId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "D",
+			"item": [
+				{
+					"name": "D1 - Past date refused (400)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"tourDate\": \"2026-01-10\", \"groupSize\": 1}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/save?travellerId=9bf85cc6-6d48-48d6-b4c2-af6a53920f2f&tourGuideId=9e6ac1f2-cd2b-4407-a8f0-62267eae0784",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"save"
+							],
+							"query": [
+								{
+									"key": "travellerId",
+									"value": "9bf85cc6-6d48-48d6-b4c2-af6a53920f2f"
+								},
+								{
+									"key": "tourGuideId",
+									"value": "9e6ac1f2-cd2b-4407-a8f0-62267eae0784"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D1 - Tour guide already booked (409)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"tourDate\": \"2026-11-21\", \"groupSize\": 1}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/save?travellerId=9bf85cc6-6d48-48d6-b4c2-af6a53920f2f&tourGuideId=b2cb37e4-45a9-4a88-9ab8-1cf502c93d63",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"save"
+							],
+							"query": [
+								{
+									"key": "travellerId",
+									"value": "9bf85cc6-6d48-48d6-b4c2-af6a53920f2f"
+								},
+								{
+									"key": "tourGuideId",
+									"value": "b2cb37e4-45a9-4a88-9ab8-1cf502c93d63"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D1 - New booking forced to RESERVED (b11)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"tourDate\": \"2026-12-05\", \"status\": \"VISITED\", \"groupSize\": 2}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/save?travellerId=d43a8d73-10b5-47a7-84bb-2bf32419538b&tourGuideId=9e6ac1f2-cd2b-4407-a8f0-62267eae0784",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"save"
+							],
+							"query": [
+								{
+									"key": "travellerId",
+									"value": "d43a8d73-10b5-47a7-84bb-2bf32419538b"
+								},
+								{
+									"key": "tourGuideId",
+									"value": "9e6ac1f2-cd2b-4407-a8f0-62267eae0784"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D1 - CANCELLED booking does not block the date (b12)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"tourDate\": \"2026-11-18\", \"groupSize\": 1}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/save?travellerId=9bf85cc6-6d48-48d6-b4c2-af6a53920f2f&tourGuideId=640f4fbf-615e-48a0-b6c9-472903973549",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"save"
+							],
+							"query": [
+								{
+									"key": "travellerId",
+									"value": "9bf85cc6-6d48-48d6-b4c2-af6a53920f2f"
+								},
+								{
+									"key": "tourGuideId",
+									"value": "640f4fbf-615e-48a0-b6c9-472903973549"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D2 - RESERVED to VISITED refused (400)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/c5524475-9aa1-488c-83d2-2f2619eaeb27/status?status=VISITED",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"c5524475-9aa1-488c-83d2-2f2619eaeb27",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "VISITED"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D2 - RESERVED to PAID allowed",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/c5524475-9aa1-488c-83d2-2f2619eaeb27/status?status=PAID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"c5524475-9aa1-488c-83d2-2f2619eaeb27",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PAID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D2 - PAID to VISITED allowed",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/c5524475-9aa1-488c-83d2-2f2619eaeb27/status?status=VISITED",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"c5524475-9aa1-488c-83d2-2f2619eaeb27",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "VISITED"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D2 - VISITED to RESERVED refused (400)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/c5524475-9aa1-488c-83d2-2f2619eaeb27/status?status=RESERVED",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"c5524475-9aa1-488c-83d2-2f2619eaeb27",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "RESERVED"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D2 - CANCELLED to PAID refused (400)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/5e4bd3ce-8f6e-4dd7-9548-c1806f6f2c14/status?status=PAID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"5e4bd3ce-8f6e-4dd7-9548-c1806f6f2c14",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PAID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D2 - General update does not change status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"tourDate\": \"2026-11-14\", \"groupSize\": 2, \"status\": \"VISITED\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/update/83ad88d6-3660-495a-95a6-2abd0b223618",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"update",
+								"83ad88d6-3660-495a-95a6-2abd0b223618"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D3 - Add tour type, keeps existing ones",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-guides/640f4fbf-615e-48a0-b6c9-472903973549/tour-types/b1278092-ff17-44c4-b88c-ace7c7938b42",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-guides",
+								"640f4fbf-615e-48a0-b6c9-472903973549",
+								"tour-types",
+								"b1278092-ff17-44c4-b88c-ace7c7938b42"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D4 - Move tour guide to destination 4",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-guides/9e6ac1f2-cd2b-4407-a8f0-62267eae0784/destination?siteNumber=4",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-guides",
+								"9e6ac1f2-cd2b-4407-a8f0-62267eae0784",
+								"destination"
+							],
+							"query": [
+								{
+									"key": "siteNumber",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D4 - Check old destination is free",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/destinations/free",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"destinations",
+								"free"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D4 - Unknown siteNumber (404)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-guides/9e6ac1f2-cd2b-4407-a8f0-62267eae0784/destination?siteNumber=29",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-guides",
+								"9e6ac1f2-cd2b-4407-a8f0-62267eae0784",
+								"destination"
+							],
+							"query": [
+								{
+									"key": "siteNumber",
+									"value": "29"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D3 - Tour guide already has tour type (409)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-guides/b2cb37e4-45a9-4a88-9ab8-1cf502c93d63/tour-types/403caa3c-dc5c-4131-bd7c-a1063f16ab06",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-guides",
+								"b2cb37e4-45a9-4a88-9ab8-1cf502c93d63",
+								"tour-types",
+								"403caa3c-dc5c-4131-bd7c-a1063f16ab06"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "E",
+			"item": [
+				{
+					"name": "E1 - Feedback on VISITED booking (b3)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"highlight\": \"Gorilla family sighting\", \"comment\": \"Unforgettable, the guide knew every trail\", \"rating\": 5}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-feedbacks/save?tourBookingId=69fbdfd8-b3c9-4911-899b-91c7b11acfa5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-feedbacks",
+								"save"
+							],
+							"query": [
+								{
+									"key": "tourBookingId",
+									"value": "69fbdfd8-b3c9-4911-899b-91c7b11acfa5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "E1 - Feedback on VISITED booking (b5)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"highlight\": \"Kigali city walk\", \"comment\": \"Very well explained\", \"rating\": 5}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-feedbacks/save?tourBookingId=d9a4b84e-fed3-4d7a-9a99-34904d9f1095",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-feedbacks",
+								"save"
+							],
+							"query": [
+								{
+									"key": "tourBookingId",
+									"value": "d9a4b84e-fed3-4d7a-9a99-34904d9f1095"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "E1 - Second feedback on same booking (b3)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"highlight\": \"Local lunch\", \"comment\": \"Great food on the way back\", \"rating\": 4}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-feedbacks/save?tourBookingId=69fbdfd8-b3c9-4911-899b-91c7b11acfa5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-feedbacks",
+								"save"
+							],
+							"query": [
+								{
+									"key": "tourBookingId",
+									"value": "69fbdfd8-b3c9-4911-899b-91c7b11acfa5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "E1 - Booking not VISITED refused (400)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"highlight\": \"Local lunch\", \"comment\": \"Great food on the way back\", \"rating\": 4}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-feedbacks/save?tourBookingId=47ccd814-8aaa-45f4-a17a-273d8ea485f6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-feedbacks",
+								"save"
+							],
+							"query": [
+								{
+									"key": "tourBookingId",
+									"value": "47ccd814-8aaa-45f4-a17a-273d8ea485f6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "E1 - Get all tour feedbacks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-feedbacks/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-feedbacks",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "E2 - History of John",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-feedbacks/traveller/US5554443",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-feedbacks",
+								"traveller",
+								"US5554443"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "E2 - History of Anna",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-feedbacks/traveller/AB9876543",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-feedbacks",
+								"traveller",
+								"AB9876543"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "E2 - Unknown passport (empty list)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-feedbacks/traveller/XX0000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-feedbacks",
+								"traveller",
+								"XX0000000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "E3 - Delete booking with feedbacks refused (409)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/delete/69fbdfd8-b3c9-4911-899b-91c7b11acfa5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"delete",
+								"69fbdfd8-b3c9-4911-899b-91c7b11acfa5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "E3 - Delete feedback, unknown id (404)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-feedbacks/delete/{{zeroId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-feedbacks",
+								"delete",
+								"{{zeroId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "F",
+			"item": [
+				{
+					"name": "F1 - Tour bookings per status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/stats/by-status",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"stats",
+								"by-status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "F2 - VISITED booking protected (0 cancelled)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/cancel-day?tourGuideId=640f4fbf-615e-48a0-b6c9-472903973549&date=2026-10-24",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"cancel-day"
+							],
+							"query": [
+								{
+									"key": "tourGuideId",
+									"value": "640f4fbf-615e-48a0-b6c9-472903973549"
+								},
+								{
+									"key": "date",
+									"value": "2026-10-24"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "F2 - Cancel tour guide day",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/cancel-day?tourGuideId=b2cb37e4-45a9-4a88-9ab8-1cf502c93d63&date=2026-10-20",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"cancel-day"
+							],
+							"query": [
+								{
+									"key": "tourGuideId",
+									"value": "b2cb37e4-45a9-4a88-9ab8-1cf502c93d63"
+								},
+								{
+									"key": "date",
+									"value": "2026-10-20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "F2 - Unknown tour guide (0 cancelled)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/cancel-day?tourGuideId={{zeroId}}&date=2026-10-20",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"cancel-day"
+							],
+							"query": [
+								{
+									"key": "tourGuideId",
+									"value": "{{zeroId}}"
+								},
+								{
+									"key": "date",
+									"value": "2026-10-20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "F1 - Tour bookings per status, after F2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/stats/by-status",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"stats",
+								"by-status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bonus",
+			"item": [
+				{
+					"name": "BONUS-dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/dashboard/summary",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"dashboard",
+								"summary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BONUS-page - Page 0, newest first",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/page?page=0&size=5&sort=tourDate,desc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"page"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "tourDate,desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BONUS-page - Page 2, oldest first",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tour-bookings/page?page=2&size=5&sort=tourDate,asc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tour-bookings",
+								"page"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "tourDate,asc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		},
+		{
+			"key": "ZeroId",
+			"value": "00000000-0000-0000-0000-000000000000"
+		}
+	]
+}
